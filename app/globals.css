@@ -122,3 +122,14 @@ body {
 .hero-image.scrolled{
   transform: rotateX(0deg) scale(1) translateY(40px);
 }
+
+
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
