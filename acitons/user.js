@@ -2,46 +2,44 @@
 
 import { db } from "@/lib/prisma";
 import { auth } from "@clerk/nextjs/server";
-import { err } from "inngest/types";
-import { TicketX } from "lucide-react";
+import { revalidatePath } from "next/cache";
+import { generateAIInsights } from "./dashboard";
 
-// export async function updateUser(data) {
-export const updateUser = async (data) => {
+export async function updateUser(data) {
   const { userId } = await auth();
   if (!userId) throw new Error("Unauthorized");
 
   const user = await db.user.findUnique({
-    where: {
-      clerkUserId: userId,
-    },
+    where: { clerkUserId: userId },
   });
 
   if (!user) throw new Error("User not found");
 
   try {
+    // Start a transaction to handle both operations
     const result = await db.$transaction(
       async (tx) => {
-        let industryInsight = await tx.industryInsights.findUnique({
+        // First check if industry exists
+        let industryInsight = await tx.industryInsight.findUnique({
           where: {
             industry: data.industry,
           },
         });
+
+        // If industry doesn't exist, create it with default values
         if (!industryInsight) {
-          industryInsight = await tx.industryInsight.create({
+          const insights = await generateAIInsights(data.industry);
+
+          industryInsight = await db.industryInsight.create({
             data: {
               industry: data.industry,
-              salaryRanges: [],
-              growthRate: 0,
-              demandLevel: "MEDIUM",
-              topSkills: [],
-              marketOutlook: "NEUTRAL",
-              keyTrends: [],
-              recommendedSkills: [],
+              ...insights,
               nextUpdate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
             },
           });
         }
 
+        // Now update the user
         const updatedUser = await tx.user.update({
           where: {
             id: user.id,
@@ -57,17 +55,19 @@ export const updateUser = async (data) => {
         return { updatedUser, industryInsight };
       },
       {
-        timeout: 10000,
+        timeout: 10000, // default: 5000
       }
     );
-    return { success: true, ...result };
+
+    revalidatePath("/");
+    return result.user;
   } catch (error) {
     console.error("Error updating user and industry:", error.message);
-    throw new Error("Failed to update profile" + error.message);
+    throw new Error("Failed to update profile");
   }
-};
+}
 
-export const getUserOnboardingStatus = async () => {
+export async function getUserOnboardingStatus() {
   const { userId } = await auth();
   if (!userId) throw new Error("Unauthorized");
 
