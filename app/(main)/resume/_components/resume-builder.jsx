@@ -241,12 +241,12 @@ export default function ResumeBuilder({ initialContent }) {
                 </div>
                 <div className="space-y-2">
                   <label className="text-sm font-medium">
-                    Twitter/X Profile
+                    GitHub
                   </label>
                   <Input
                     {...register("contactInfo.twitter")}
                     type="url"
-                    placeholder="https://twitter.com/your-handle"
+                    placeholder="https://github.com/your-handle"
                   />
                   {errors.contactInfo?.twitter && (
                     <p className="text-sm text-red-500">
