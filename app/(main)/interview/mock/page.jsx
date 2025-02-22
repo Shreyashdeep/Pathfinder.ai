@@ -2,7 +2,7 @@ import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 // import Quiz from "../_components/quiz";
-import Quiz from "./_component/quiz";
+import Quiz from "../_component/quiz";
 
 export default function MockInterviewPage() {
   return (
