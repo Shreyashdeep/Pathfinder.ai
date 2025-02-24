@@ -111,7 +111,7 @@ This project is licensed under the MIT License - see the `LICENSE` file for deta
 
 ## Contact
 
-* Your Name: Shreyash Deep
+* Shreyash Deep
 * Email: mail2shreyashdeep@gmail.com
 * X : https://x.com/ShreyashDeep1
 * LinkedIn : linkedin.com/in/shreyashdeep
