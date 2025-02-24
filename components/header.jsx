@@ -1,6 +1,3 @@
-
-
-
 import React from "react";
 import { SignedOut, SignInButton, UserButton, SignedIn } from "@clerk/nextjs";
 import Link from "next/link";
@@ -23,7 +20,6 @@ import {
 } from "../components/ui/dropdown-menu";
 import { Button } from "./ui/button";
 import { checkUser } from "@/lib/checkUser";
-
 
 const Header = async () => {
   await checkUser();
@@ -84,18 +80,18 @@ const Header = async () => {
           <SignedOut>
             <SignInButton>
               <div className="flex items-center space-x-2 cursor-pointer">
-                <Button variant="outline">Sign In</Button>
+                <Button variant="outline"></Button>
               </div>
             </SignInButton>
           </SignedOut>
           <SignedIn>
-            <UserButton 
+            <UserButton
               appearance={{
-                elements:{
+                elements: {
                   avatarBox: "w-10 h-10",
                   userButtonPopoverCard: "shadow-xl",
                   userPreviewMainIdentifier: "font-semibold",
-                }
+                },
               }}
               afterSignOutUrl="/"
             />
