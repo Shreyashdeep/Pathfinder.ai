@@ -1,6 +1,6 @@
 # Pathfinder.ai : Your AI-Powered Career Coach
 
-[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE) [![Vercel Deploy](https://pathfinder-ai-ruby.vercel.app/)] **Pathfinder.ai** is a comprehensive AI-driven career coach application designed to elevate your job search and career development. Leveraging cutting-edge technologies like Next.js, Gemini AI, and Prisma, Pathfinder.ai provides a suite of tools to help you craft compelling resumes, practice for interviews, generate tailored cover letters, and stay informed about industry trends.
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE) **Pathfinder.ai** is a comprehensive AI-driven career coach application designed to elevate your job search and career development. Leveraging cutting-edge technologies like Next.js, Gemini AI, and Prisma, Pathfinder.ai provides a suite of tools to help you craft compelling resumes, practice for interviews, generate tailored cover letters, and stay informed about industry trends.
 
 ## Features
 
