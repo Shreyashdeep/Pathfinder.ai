@@ -12,7 +12,6 @@ import {
 } from "@/components/ui/card";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
-// import { generateQuiz, saveQuizResult } from "@/actions/interview";
 import { generateQuiz, saveQuizResult } from "@/acitons/interview";
 import QuizResult from "./quiz-result";
 import useFetch from "@/hooks/use-fetch";
@@ -89,7 +88,6 @@ export default function Quiz() {
     return <BarLoader className="mt-4" width={"100%"} color="gray" />;
   }
 
-  // Show results if quiz is completed
   if (resultData) {
     return (
       <div className="mx-2">

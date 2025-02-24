@@ -23,7 +23,6 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
-// import { deleteCoverLetter } from "@/actions/cover-letter";
 import { deleteCoverLetter } from "@/acitons/cover-letter";
 
 export default function CoverLetterList({ coverLetters }) {

@@ -1,4 +1,3 @@
-// import { getCoverLetters } from "@/actions/cover-letter";
 import { getCoverLetters } from "@/acitons/cover-letter";
 import Link from "next/link";
 import { Plus } from "lucide-react";
