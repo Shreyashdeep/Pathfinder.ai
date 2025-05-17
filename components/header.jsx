@@ -80,7 +80,7 @@ const Header = async () => {
           <SignedOut>
             <SignInButton>
               <div className="flex items-center space-x-2 cursor-pointer">
-                <Button variant="outline"></Button>
+                <Button variant="outline">Sign In</Button>
               </div>
             </SignInButton>
           </SignedOut>
